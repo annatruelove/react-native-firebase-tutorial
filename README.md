@@ -15,4 +15,11 @@ Install NPM and Expo CLI
 
 `npm install -g expo-cli`
 
+To Run
+
+`cd react-native-firebase-tutorial`
+
+`npm start`
+
 Find complete tutorial at https://docs.google.com/presentation/d/1cmTvXpIb_4ZFboBWosRdAdMvJ-G5cNqwyKqoABgD5-E/edit?usp=sharing
+
