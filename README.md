@@ -8,3 +8,8 @@ You will need to have the Expo app installed on your mobile device in order to r
 Clone project using HTTPS:
 `git clone https://github.com/annatruelove/react-native-firebase-tutorial.git`
 
+Install NPM and Expo CLI
+`npm install`
+`npm install -g expo-cli`
+
+Find Complete tutorial at https://docs.google.com/presentation/d/1cmTvXpIb_4ZFboBWosRdAdMvJ-G5cNqwyKqoABgD5-E/edit?usp=sharing
