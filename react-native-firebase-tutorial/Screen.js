@@ -13,7 +13,13 @@ let config = {
     measurementId: "G-89SK124S5Q"
 };
 
-let app = Firebase.initializeApp(config);
+let app
+
+if (!Firebase.apps.length) {
+    app = Firebase.initializeApp(config);
+}
+
+//let app = Firebase.initializeApp(config);
 
 const db = app.database();
 
