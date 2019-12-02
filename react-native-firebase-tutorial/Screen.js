@@ -1,5 +1,31 @@
 import React from 'react'
 import { Text, View, TouchableHighlight, StyleSheet, TextInput, Alert } from 'react-native';
+import Firebase from 'firebase';
+
+let config = {
+    apiKey: "AIzaSyBxF98fqZgMHU73LKGO8o6ZUIK7mzG_ejc",
+    authDomain: "tutorial-f1cd4.firebaseapp.com",
+    databaseURL: "https://tutorial-f1cd4.firebaseio.com",
+    projectId: "tutorial-f1cd4",
+    storageBucket: "tutorial-f1cd4.appspot.com",
+    messagingSenderId: "981650514141",
+    appId: "1:981650514141:web:fdfdb5675890aa441cfb34",
+    measurementId: "G-89SK124S5Q"
+};
+
+let app = Firebase.initializeApp(config);
+
+const db = app.database();
+
+let addItem = item => {
+    db.ref('/items').push({
+    name: item
+    });
+};
+
+
+
+
 
 export default class Screen extends React.Component {
 
@@ -15,15 +41,31 @@ export default class Screen extends React.Component {
 }
 
 class AddItem extends React.Component {
+    state = {
+        item: ''
+    };
+
+    handleChange = e => {
+        this.setState({
+            item: e.nativeEvent.text
+        });
+    };
+    
+    handleSubmit = () => {
+        addItem(this.state.item);
+        Alert.alert('Item saved successfully');
+    };
+
 
     render() {
         return (
             <View style={styles.main}>
                 <Text style={styles.title}>Add to List!</Text>
 
-                <TextInput style={styles.itemInput} />
+                <TextInput style={styles.itemInput} onChange={this.handleChange}
+/>
 
-                <TouchableHighlight style={styles.button} underlayColor="white">
+                <TouchableHighlight style={styles.button} underlayColor="white" onPress={this.handleSubmit}>
                     <Text style={styles.buttonText}>Add</Text>
                 </TouchableHighlight> 
 
